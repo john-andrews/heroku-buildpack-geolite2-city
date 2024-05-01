@@ -22,7 +22,7 @@ FILE_NAME=$(basename $URL)
 DB_FILE=GeoLite2-City.mmdb
 
 echo "Downloading GeoLite2 locations database"
-curl -s -O $URL
+curl -s -O -L $URL
 ENTRY=$( tar -ztpf $FILE_NAME | grep $DB_FILE )
 tar --strip-components 1 -xvpf $FILE_NAME $ENTRY
 
